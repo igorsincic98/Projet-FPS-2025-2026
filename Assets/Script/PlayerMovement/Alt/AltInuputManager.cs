@@ -14,6 +14,8 @@ public class AltInuputManager : MonoBehaviour
     private AltPlayerMotor motor;
     
     private AltPlayerLook look;
+
+    private AltPlayerInteract interact;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -28,6 +30,10 @@ public class AltInuputManager : MonoBehaviour
     void Update()
     {
         motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
+        if (Input.GetKeyDown(AltPlayerInput.OnFootActions.Interact))
+        {
+            interact.Interact;
+        }
     }
 
     private void LateUpdate()
@@ -44,4 +50,5 @@ public class AltInuputManager : MonoBehaviour
     {
         onFoot.Disable();
     }
+
 }
