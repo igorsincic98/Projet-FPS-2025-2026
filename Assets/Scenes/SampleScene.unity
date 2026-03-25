@@ -131,27 +131,14 @@ GameObject:
   - component: {fileID: 16312419}
   - component: {fileID: 16312418}
   - component: {fileID: 16312417}
-  - component: {fileID: 16312416}
   - component: {fileID: 16312421}
   m_Layer: 6
   m_Name: Keypad
-  m_TagString: Interactable
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &16312416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16312415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa24651af9350af449b377bea440c950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Keypad
 --- !u!65 &16312417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1525,7 +1512,7 @@ MonoBehaviour:
   distance: 77.7
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   textMessage: {fileID: 6047814160003907509, guid: e1875ed21bf0c8744acdfcf30dbd13f5, type: 3}
   CanvasTransform: {fileID: 597959601}
 --- !u!4 &1228846394 stripped
@@ -2087,7 +2074,7 @@ GameObject:
   - component: {fileID: 1997524141}
   - component: {fileID: 1997524140}
   - component: {fileID: 1997524139}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2201,7 +2188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1606257677210998678, guid: 0ad27608b6dd79b48aa27595541e05f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.91
+      value: -2.97
       objectReference: {fileID: 0}
     - target: {fileID: 1606257677210998678, guid: 0ad27608b6dd79b48aa27595541e05f5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2209,7 +2196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1606257677210998678, guid: 0ad27608b6dd79b48aa27595541e05f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.35356
+      value: 13.04
       objectReference: {fileID: 0}
     - target: {fileID: 1606257677210998678, guid: 0ad27608b6dd79b48aa27595541e05f5, type: 3}
       propertyPath: m_LocalRotation.w

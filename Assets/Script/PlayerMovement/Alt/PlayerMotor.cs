@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AltPlayerMotor : MonoBehaviour
+public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
 
@@ -45,4 +45,5 @@ public class AltPlayerMotor : MonoBehaviour
             playerVelocity.y = Mathf.Sqrt(jumpHeight * 3f * gravity);
         }
     }
+
 }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class AltPlayerLook : MonoBehaviour
+public class PlayerLook : MonoBehaviour
 {
     public Camera cam;
 

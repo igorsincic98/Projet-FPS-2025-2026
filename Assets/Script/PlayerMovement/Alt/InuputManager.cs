@@ -2,38 +2,35 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AltInuputManager : MonoBehaviour
-
-
-
+public class InuputManager : MonoBehaviour
 {
-    private AltPlayerInput playerInput;
+    private PlayerInput playerInput;
 
-    private AltPlayerInput.OnFootActions onFoot;
+    private PlayerInput.OnFootActions onFoot;
 
-    private AltPlayerMotor motor;
+    private PlayerMotor motor;
     
-    private AltPlayerLook look;
+    private PlayerLook look;
 
-    private AltPlayerInteract interact;
+    private PlayerInteract interact;
+    
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        playerInput = new AltPlayerInput();
+        playerInput = new PlayerInput();
         onFoot = playerInput.OnFoot;
-        motor = GetComponent<AltPlayerMotor>();
-        look = GetComponent<AltPlayerLook>();
+        motor = GetComponent<PlayerMotor>();
+        look = GetComponent<PlayerLook>();
         onFoot.Jump.performed += ctx => motor.Jump();
+        interact = GetComponent<PlayerInteract>();
+        onFoot.Interact.performed += ctx => interact.Interact();
     }
 
     // Update is called once per frame
     void Update()
     {
         motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
-        if (Input.GetKeyDown(AltPlayerInput.OnFootActions.Interact))
-        {
-            interact.Interact;
-        }
     }
 
     private void LateUpdate()
