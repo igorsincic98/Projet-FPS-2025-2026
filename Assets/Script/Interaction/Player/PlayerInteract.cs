@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
@@ -11,6 +12,8 @@ public class PlayerInteract : MonoBehaviour
     private LayerMask mask;
     [SerializeField] private GameObject textMessage;
     [SerializeField] private Transform CanvasTransform;
+    private PlayerInput.OnFootActions onFoot;
+    private PlayerInput playerInput;
 
     private PlayerUI playerUI;
     
@@ -18,6 +21,8 @@ public class PlayerInteract : MonoBehaviour
     void Start()
     {
         cam = GetComponent<PlayerLook>().cam;
+        playerInput = new PlayerInput();
+        onFoot = playerInput.OnFoot;
     }
 
     // Update is called once per frame
@@ -29,6 +34,13 @@ public class PlayerInteract : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo, distance, mask) == GameObject.FindGameObjectWithTag("Interactive"))
 
         {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Key Pressed");
+                hitInfo.collider.gameObject.GetComponent<Interactable>().Interacting();
+                Debug.Log("Message Sent");
+
+            }
             if (GameObject.FindGameObjectsWithTag("ItemPrompt"). Length < 1)
             {
                 GameObject prompt = Instantiate(textMessage, CanvasTransform);
@@ -37,12 +49,10 @@ public class PlayerInteract : MonoBehaviour
             }
         }
         else Destroy(GameObject.FindGameObjectWithTag("ItemPrompt"));
+        
+
     }
 
-    
-    public void Interact()
-    {
-        
-    }
-    
+
+
 }

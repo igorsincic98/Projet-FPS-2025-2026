@@ -24,7 +24,7 @@ public class InuputManager : MonoBehaviour
         look = GetComponent<PlayerLook>();
         onFoot.Jump.performed += ctx => motor.Jump();
         interact = GetComponent<PlayerInteract>();
-        onFoot.Interact.performed += ctx => interact.Interact();
+        //onFoot.Interact.performed += ctx => interact.Interact();
     }
 
     // Update is called once per frame
