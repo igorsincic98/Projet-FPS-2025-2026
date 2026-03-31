@@ -4,7 +4,7 @@ using UnityEngine;
 public class InteractableData : ScriptableObject
 
 {
-    [SerializeField] private string itemName;
-    [SerializeField] private string itemDescription;
-    [SerializeField] private Sprite itemIcon;
+    [SerializeField] public string itemName;
+    [SerializeField] public string itemDescription;
+    [SerializeField] public Sprite itemIcon;
 }

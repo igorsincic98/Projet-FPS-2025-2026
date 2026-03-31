@@ -34,13 +34,14 @@ public class PlayerInteract : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo, distance, mask) == GameObject.FindGameObjectWithTag("Interactive"))
 
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            /*
+            if (onFoot.Interact.WasPressedThisFrame())
+            //if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Key Pressed");
                 hitInfo.collider.gameObject.GetComponent<Interactable>().Interacting();
-                Debug.Log("Message Sent");
 
             }
+            */
             if (GameObject.FindGameObjectsWithTag("ItemPrompt"). Length < 1)
             {
                 GameObject prompt = Instantiate(textMessage, CanvasTransform);

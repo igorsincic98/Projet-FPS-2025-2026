@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class KeypadController : MonoBehaviour
     [SerializeField] private float doorCooldownRate = 1f;
     public float doorCooldown = 0f;
         public bool doorProcessing = false;
+        [SerializeField] private GameObject inventory;
+        //private List<InteractableData> keyItem = inventory.GetComponent<InventoryManager>().inventoryItems;
     
     public void Interact()
 

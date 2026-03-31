@@ -14,6 +14,10 @@ public class InuputManager : MonoBehaviour
 
     private PlayerInteract interact;
     
+    [SerializeField] private bool inventoryIsDisplayed;
+
+    [SerializeField] private GameObject inventory;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -23,8 +27,7 @@ public class InuputManager : MonoBehaviour
         motor = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
         onFoot.Jump.performed += ctx => motor.Jump();
-        interact = GetComponent<PlayerInteract>();
-        //onFoot.Interact.performed += ctx => interact.Interact();
+        // Add mouse lock in
     }
 
     // Update is called once per frame
@@ -46,6 +49,12 @@ public class InuputManager : MonoBehaviour
     private void OnDisable()
     {
         onFoot.Disable();
+    }
+    public void inventoryDisplay()
+    {
+        bool currentInventoryState = inventory.activeSelf;
+        inventory.SetActive(!currentInventoryState);
+        // Add mouse lock off
     }
 
 }

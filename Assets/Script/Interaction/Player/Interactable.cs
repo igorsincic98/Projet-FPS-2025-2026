@@ -7,7 +7,6 @@ public class Interactable : MonoBehaviour
 
     public void Interacting()
     {
-        Debug.Log("Interacting");
         keypad.Interact();
     }
 }

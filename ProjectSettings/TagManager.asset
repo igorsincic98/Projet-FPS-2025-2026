@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactive
   - ItemPrompt
+  - Pick Up
   layers:
   - Default
   - TransparentFX
