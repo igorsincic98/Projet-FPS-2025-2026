@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,26 +10,39 @@ public class KeypadController : MonoBehaviour
     private bool doorOpen = false;
     [SerializeField] private float doorCooldownRate = 1f;
     public float doorCooldown = 0f;
-        public bool doorProcessing = false;
-        [SerializeField] private GameObject inventory;
-        //private List<InteractableData> keyItem = inventory.GetComponent<InventoryManager>().inventoryItems;
-    
-    public void Interact()
+    public bool doorProcessing = false;
+    [SerializeField] private GameObject inventory;
+    [SerializeField] private List<InteractableData> keyItem;
 
+
+    private void Start()
+    {
+        keyItem = inventory.GetComponent<InventoryManager>().inventoryItems;
+    }
+
+    public void Interact()
+    {
+        for (int i = 0; i < keyItem.Count; i++)
         {
-            if (!doorOpen && !doorProcessing)
+            if (keyItem[i].itemName == "Key Card")
             {
-                doorAnim.Play("Open", 0, 0f);
-                doorOpen = true;
-                StartCoroutine(StartDoorCooldown());
-            }
-            else if (doorOpen && !doorProcessing)
-            {
-                doorAnim.Play("Close", 0, 0f);
-                doorOpen = false;
-                StartCoroutine(StartDoorCooldown());
+                if (!doorOpen && !doorProcessing)
+                {
+                    doorAnim.Play("Open", 0, 0f);
+                    doorOpen = true;
+                    StartCoroutine(StartDoorCooldown());
+                    break;
+                }
+                else if (doorOpen && !doorProcessing)
+                {
+                    doorAnim.Play("Close", 0, 0f);
+                    doorOpen = false;
+                    StartCoroutine(StartDoorCooldown());
+                    break;
+                }
             }
         }
+    }
 
     IEnumerator StartDoorCooldown()
     {

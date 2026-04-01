@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
+    PlayerInput playerInput;
 
     private Vector3 playerVelocity;
 
@@ -10,7 +12,8 @@ public class PlayerMotor : MonoBehaviour
     private bool isGrounded;
     public float gravity = 9.8f;
     public float jumpHeight = 3f;
-    
+
+    public float sprintSpeed = 2f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +24,7 @@ public class PlayerMotor : MonoBehaviour
     void Update()
     {
         isGrounded = controller.isGrounded;
+            
     }
 
     public void ProcessMove(Vector2 input)
@@ -38,6 +42,13 @@ public class PlayerMotor : MonoBehaviour
         //Debug.Log(playerVelocity.y);
     }
 
+    
+    public void SprintState()
+    {
+        speed = 5f;
+        speed = speed * sprintSpeed;
+    }
+    
     public void Jump()
     {
         if (isGrounded)

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InuputManager : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
 
@@ -17,6 +17,8 @@ public class InuputManager : MonoBehaviour
     [SerializeField] private bool inventoryIsDisplayed;
 
     [SerializeField] private GameObject inventory;
+    
+    [SerializeField] private InventoryManager inventoryManager;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
