@@ -23,6 +23,10 @@ public class PickUpController : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             _inventoryManager.AddItem(_itemData);
+            if (gameObject.tag == "Weapon")
+            {
+                gameObject.GetComponent<AddWeapon>().PickUpWeapon();
+            }
             Destroy(gameObject);
         }
     }

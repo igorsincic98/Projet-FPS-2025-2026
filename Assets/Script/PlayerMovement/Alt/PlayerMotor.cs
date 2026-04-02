@@ -24,6 +24,11 @@ public class PlayerMotor : MonoBehaviour
     void Update()
     {
         isGrounded = controller.isGrounded;
+        if (Input.GetButton("Sprint"))
+        {
+            speed = 5f * sprintSpeed;
+        }
+        else speed = 5f;
             
     }
 
@@ -43,11 +48,11 @@ public class PlayerMotor : MonoBehaviour
     }
 
     
-    public void SprintState()
+    /*public void SprintState()
     {
         speed = 5f;
         speed = speed * sprintSpeed;
-    }
+    }*/
     
     public void Jump()
     {

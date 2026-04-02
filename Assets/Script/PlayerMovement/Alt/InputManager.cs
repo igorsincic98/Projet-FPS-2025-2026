@@ -28,8 +28,9 @@ public class InputManager : MonoBehaviour
         onFoot = playerInput.OnFoot;
         motor = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
-        onFoot.Jump.performed += ctx => motor.Jump();
-        // Add mouse lock in
+        onFoot.Jump.performed += ctx => motor.Jump(); 
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     // Update is called once per frame
@@ -56,7 +57,7 @@ public class InputManager : MonoBehaviour
     {
         bool currentInventoryState = inventory.activeSelf;
         inventory.SetActive(!currentInventoryState);
-        // Add mouse lock off
+        Cursor.lockState = CursorLockMode.None;
     }
 
 }

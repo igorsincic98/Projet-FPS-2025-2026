@@ -7,6 +7,7 @@ public class Entity : MonoBehaviour
     [SerializeField] private float StartingHealth;
     private float health;
 
+    /*
     public float Health
     {
         get
@@ -16,22 +17,27 @@ public class Entity : MonoBehaviour
         set
         {
             health = value;
-            Debug.Log(health);
-
             if (health <= (0f))
             {
                 Destroy(gameObject);
             }
         }
     }
+    */
     
     void Start()
     {
-        Health = StartingHealth;
+        health = StartingHealth;
     }
 
     public void TakeDamage(float damage)
     {
-        Health -= damage;
+        health -= damage;
+        Debug.Log(health);
+        if (health <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
+    
 }

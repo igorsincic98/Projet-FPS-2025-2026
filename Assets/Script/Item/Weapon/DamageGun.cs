@@ -1,38 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DamageGun : MonoBehaviour
 {
     public float Damage;
     public float BulletRange;
-    private Transform PlayerCamera;
+    [SerializeField] Transform PlayerCamera;
+
+    [SerializeField] private GameObject player;
+
+    [SerializeField] private AmmoController usableAmmo;
+
     //[SerializeField]
     //private TrailRenderer BulletTrail;
     private void Start()
     {
         PlayerCamera = UnityEngine.Camera.main.transform;
+        usableAmmo = player.GetComponent<AmmoController>();
     }
 
 
     public void Shoot()
     {
-        Ray gunRay = new Ray(PlayerCamera.position, PlayerCamera.forward);
-        if (Physics.Raycast(gunRay, out RaycastHit hitInfo, BulletRange))
+        if (usableAmmo.ammoInGun > 0)
         {
-            //TrailRenderer trail = Instantiate(BulletTrail, PlayerCamera.position, Quaternion.identity);
-            if (hitInfo.collider.gameObject.TryGetComponent(out Entity enemy))
+            usableAmmo.ammoInGun -= 1;
+            RaycastHit hitInfo;
+            Physics.Raycast(PlayerCamera.position, PlayerCamera.forward, out hitInfo);
+            Debug.Log(hitInfo.collider.name);
+            Entity enemy = hitInfo.collider.GetComponent<Entity>();
+            if (enemy != null)
             {
-                Debug.Log("Hit");
-                enemy.TakeDamage(Damage);
-                enemy.Health -= Damage;
+                Debug.Log("Hit " + enemy.name);
             }
             else
             {
                 Debug.Log("Miss");
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
             }
         }
-
     }
 }
