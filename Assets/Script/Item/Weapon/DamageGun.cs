@@ -35,6 +35,7 @@ public class DamageGun : MonoBehaviour
             if (enemy != null)
             {
                 Debug.Log("Hit " + enemy.name);
+                enemy.TakeDamage(1);
             }
             else
             {
