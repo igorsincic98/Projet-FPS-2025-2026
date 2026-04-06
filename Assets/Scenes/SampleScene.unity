@@ -1736,7 +1736,7 @@ GameObject:
   - component: {fileID: 266228104}
   - component: {fileID: 266228103}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1756,11 +1756,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1782163467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 353, y: 64}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &266228103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13574,7 +13574,7 @@ GameObject:
   - component: {fileID: 1782163469}
   - component: {fileID: 1782163468}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15567,6 +15567,7 @@ GameObject:
   - component: {fileID: 1204921793}
   - component: {fileID: 1204921797}
   - component: {fileID: 1204921801}
+  - component: {fileID: 8880560855523717175}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -15746,7 +15747,7 @@ Transform:
   m_GameObject: {fileID: 4151836288859044189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.69, y: 0.89, z: 23.97}
+  m_LocalPosition: {x: -2.69, y: 0.89, z: -3.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15754,6 +15755,21 @@ Transform:
   - {fileID: 1744118968}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8880560855523717175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4151836288859044189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02cfd82ca4a8cc349bc381da66403618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthManager
+  maxHealth: 10
+  currentHealth: 0
+  healthBar: {fileID: 266228102}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
