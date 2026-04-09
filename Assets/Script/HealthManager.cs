@@ -6,16 +6,18 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] private float maxHealth, currentHealth;
     [SerializeField] private RectTransform healthBar;
+    [SerializeField] private Vector2 maxHealthBar;
     [SerializeField] private GameObject gameOverScreen;
 
     void Awake()
     {
         currentHealth = maxHealth;
+        maxHealthBar = healthBar.sizeDelta;
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.sizeDelta = new Vector2((currentHealth / maxHealth) * healthBar.sizeDelta.x, healthBar.sizeDelta.y);
+        healthBar.sizeDelta = new Vector2((currentHealth / maxHealth) * maxHealthBar.x, maxHealthBar.y);
         if (currentHealth <= 0)
         {
             Time.timeScale = 0;
