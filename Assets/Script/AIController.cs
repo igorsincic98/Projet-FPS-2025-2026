@@ -9,7 +9,9 @@ public class AIController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float minDistance;
     [SerializeField] private float maxDistance;
+    /*
     [SerializeField] private GameObject origin;
+    */
     [SerializeField] private float hitCooldown;
     [SerializeField] private int damageAmount;
     [SerializeField] private NavMeshAgent navAgent;
@@ -19,24 +21,27 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-        /*
-        if (Vector3.Distance(transform.position, player.position) > minDistance &&
-            Vector3.Distance(transform.position, player.position) < maxDistance)
-        {
-            transform.LookAt(player);
-            transform.position += transform.forward * speed * Time.deltaTime;
-        }
-        else
-        {
-            transform.LookAt(origin.transform);
-            if (Vector3.Distance(transform.position, origin.transform.position) > minDistance)
+            if (Vector3.Distance(transform.position, player.position) > minDistance &&
+                Vector3.Distance(transform.position, player.position) < maxDistance)
             {
+                FollowPlayer();
+                /*
+                transform.LookAt(player);
                 transform.position += transform.forward * speed * Time.deltaTime;
+            */
             }
-            
-        }
-        */
+            else
+            {
+                GoToSpawnPoint();
+                /*
+                transform.LookAt(origin.transform);
+                if (Vector3.Distance(transform.position, origin.transform.position) > minDistance)
+                {
+                    transform.position += transform.forward * speed * Time.deltaTime;
+                }
+                */
 
+            }
         if (hitCooldown > 0f)
         {
             hitCooldown -= Time.deltaTime;
@@ -52,8 +57,13 @@ public class AIController : MonoBehaviour
         }
     }
 
-    private void GoToTarget()
+    private void GoToSpawnPoint()
     {
         navAgent.SetDestination(spawnPoint.transform.position);
+    }
+
+    private void FollowPlayer()
+    {
+        navAgent.SetDestination(player.position);
     }
 }

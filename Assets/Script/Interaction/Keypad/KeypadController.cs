@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class KeypadController : MonoBehaviour
 {
-    [SerializeField] private Animator doorAnim = null;
+    [SerializeField] private DoorOpeningAnim _doorAnim;
     private bool doorOpen = false;
     [SerializeField] private float doorCooldownRate = 1f;
     public float doorCooldown = 0f;
@@ -28,14 +28,14 @@ public class KeypadController : MonoBehaviour
             {
                 if (!doorOpen && !doorProcessing)
                 {
-                    doorAnim.Play("Open", 0, 0f);
+                    _doorAnim.DoorOpening();
                     doorOpen = true;
                     StartCoroutine(StartDoorCooldown());
                     break;
                 }
                 else if (doorOpen && !doorProcessing)
                 {
-                    doorAnim.Play("Close", 0, 0f);
+                    _doorAnim.DoorClosing();
                     doorOpen = false;
                     StartCoroutine(StartDoorCooldown());
                     break;

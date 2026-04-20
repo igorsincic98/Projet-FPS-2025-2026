@@ -1,14 +1,11 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TrapController : MonoBehaviour
 {
-    [SerializeField] private Animator trap;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private TrapOpeningAnim doorOpen;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -21,7 +18,7 @@ public class TrapController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            trap.Play("Open");
+            doorOpen.TrapOpening();
         }
     }
 }
