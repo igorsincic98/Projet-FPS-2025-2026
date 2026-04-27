@@ -54,6 +54,19 @@ public class PlayerInteract : MonoBehaviour
 
     }
 
+    public void Interact()
+    {
+        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+        Debug.DrawRay(ray.origin, ray.direction * distance, Color.white);
+        RaycastHit hitInfo;
+        if (Physics.Raycast(ray, out hitInfo, distance, mask) == GameObject.FindGameObjectWithTag("Interactive"))
+
+        {
+            hitInfo.collider.gameObject.GetComponent<Interactable>().Interacting();
+
+        }
+    }
+
 
 
 }

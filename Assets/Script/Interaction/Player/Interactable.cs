@@ -10,8 +10,17 @@ public class Interactable : MonoBehaviour
     public void Interacting()
     {
         Debug.Log("Interacting");
-        _keyKeypad.Interact();
-        _keypad.Interact();
-        _exitButton.Interact();
+        if (_keypad != null)
+        {
+            _keypad.Interact();
+        }
+        if (_keyKeypad != null)
+        {
+            _keyKeypad.Interact();
+        }
+        if (_exitButton != null)
+        {
+            _exitButton.Interact();
+        }
     }
 }
