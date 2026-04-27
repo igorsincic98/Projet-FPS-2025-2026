@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class PlatformRetractAnim : MonoBehaviour
+public class UpDownAnim : MonoBehaviour
 {
     [SerializeField] private float _timeOffSet;
     [SerializeField] private int _timerMax;
@@ -30,7 +30,7 @@ public class PlatformRetractAnim : MonoBehaviour
         }
         if (_timeOffSet <= 0f && _timer <= 0f)
         {
-            gameObject.transform.transform.DOMoveX((transform.position.x - (_moveDistance * _phase)), _duration);
+            gameObject.transform.transform.DOMoveY((transform.position.y - (_moveDistance * _phase)), _duration).SetEase(Ease.Linear);
             _timer = _timerMax;
             _phase *= -1;
         }

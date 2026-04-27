@@ -11,7 +11,7 @@ public class DoorOpeningAnim : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _initialPosition = transform.position;
+        _initialPosition = gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -22,11 +22,11 @@ public class DoorOpeningAnim : MonoBehaviour
 
     public void DoorOpening()
     {
-        transform.DOLocalMoveY(_openedPosition, _openingDuration);
+        transform.DOMoveY(_openedPosition, _openingDuration);
     }
 
     public void DoorClosing()
     {
-        transform.DOLocalMoveY(-_initialPosition.y, _openingDuration);
+        transform.DOMoveY(_initialPosition.y, _openingDuration);
     }
 }

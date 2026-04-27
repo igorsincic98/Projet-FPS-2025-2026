@@ -46,7 +46,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 GameObject prompt = Instantiate(textMessage, CanvasTransform);
                 prompt.GetComponent<TextMeshProUGUI>().text =
-                    (hitInfo.transform.GetComponent<Interactable>().promptMessage);
+                    (hitInfo.transform.GetComponent<Interactable>()._promptMessage);
             }
         }
         else Destroy(GameObject.FindGameObjectWithTag("ItemPrompt"));
