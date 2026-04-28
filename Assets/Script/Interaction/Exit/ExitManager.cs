@@ -29,10 +29,6 @@ public class ExitManager : MonoBehaviour
             
             Debug.Log("Button Pushed");
             
-            _interactable = false;
-            
-            transform.DOMoveY(transform.position.y - 1f, _duration);
-
         }
 
         if (_buttonPushed >= 2)
@@ -47,7 +43,6 @@ public class ExitManager : MonoBehaviour
         {
             _exitDoorLeft.transform.DOMoveX(_exitDoorLeft.transform.position.x - 5f, _duration);
             _exitDoorRight.transform.DOMoveX(_exitDoorRight.transform.position.x + 5f, _duration);
-            _interactable = false;
         }
     }
 }

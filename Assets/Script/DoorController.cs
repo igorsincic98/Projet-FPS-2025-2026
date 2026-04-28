@@ -1,9 +1,11 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField] private Animator doorOpen;
-    
+    [SerializeField] private int _targetObjective;
+    [SerializeField] private float _moveDistance;
+    [SerializeField] private float _scaleDistance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,9 +21,12 @@ public class DoorController : MonoBehaviour
     public void CheckOpenDoor()
     {
         Debug.Log(transform.childCount);
-        if (transform.childCount <= 1)
+        if (transform.childCount <= _targetObjective)
         {
-            doorOpen.Play("DoorOpenTop", 0, 0f);
+            Debug.Log("Objective done");
+            transform.DOMoveY(transform.position.y + _moveDistance, 1f);
+            transform.DOScaleY(transform.localScale.y + _scaleDistance, 1f);
+            Debug.Log("Has moved");
         }
     }
     

@@ -220,4 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f4a9650d3a9d9449d65f1ad7cf1d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity
-  StartingHealth: 1
+  startingHealth: 0
+  signal:
+    m_PersistentCalls:
+      m_Calls: []

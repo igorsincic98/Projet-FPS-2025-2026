@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class KeyKeypadController : MonoBehaviour
@@ -5,6 +6,7 @@ public class KeyKeypadController : MonoBehaviour
     [SerializeField] private bool _interactable;
 
     [SerializeField] private ExitManager _exit;
+    [SerializeField] private Vector3 _movement;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +25,8 @@ public class KeyKeypadController : MonoBehaviour
         {
             _interactable = false;
             _exit.KeyPressed();
+            _interactable = false;
+            transform.DOMove(transform.position + _movement, 0.5f);
 
         }
     }

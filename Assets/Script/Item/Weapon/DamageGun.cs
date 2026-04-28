@@ -6,40 +6,42 @@ using UnityEngine.Rendering;
 
 public class DamageGun : MonoBehaviour
 {
-    public float Damage;
-    public float BulletRange;
-    [SerializeField] Transform PlayerCamera;
+    public float _damage;
+    public float _bulletRange;
+    [SerializeField] Transform _playerCamera;
 
-    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject _player;
 
-    [SerializeField] private AmmoController usableAmmo;
+    [SerializeField] private AmmoController _usableAmmo;
 
     //[SerializeField]
     //private TrailRenderer BulletTrail;
     private void Start()
     {
-        PlayerCamera = UnityEngine.Camera.main.transform;
-        usableAmmo = player.GetComponent<AmmoController>();
+        _playerCamera = UnityEngine.Camera.main.transform;
+        _usableAmmo = _player.GetComponent<AmmoController>();
     }
 
 
     public void Shoot()
     {
-        if (usableAmmo.ammoInGun > 0)
+        if (_usableAmmo.ammoInGun > 0)
         {
-            usableAmmo.ammoInGun -= 1;
+            _usableAmmo.ammoInGun -= 1;
             RaycastHit hitInfo;
-            Physics.Raycast(PlayerCamera.position, PlayerCamera.forward, out hitInfo);
-            Debug.Log(hitInfo.collider.name);
-            Entity enemy = hitInfo.collider.GetComponent<Entity>();
-            if (enemy != null)
+            if (Physics.Raycast(_playerCamera.position, _playerCamera.forward, out hitInfo, _bulletRange))
             {
-                Debug.Log("Hit " + enemy.name);
-                enemy.TakeDamage(1);
-            }
-            else
-            {
-                Debug.Log("Miss");
+
+                Debug.Log(hitInfo.collider.name);
+                Entity enemy = hitInfo.collider.GetComponent<Entity>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                else
+                {
+                    Debug.Log("Miss");
+                }
             }
         }
     }
