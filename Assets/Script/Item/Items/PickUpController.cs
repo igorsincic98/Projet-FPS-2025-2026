@@ -27,7 +27,7 @@ public class PickUpController : MonoBehaviour
             {
                 gameObject.GetComponent<AddWeapon>().PickUpWeapon();
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

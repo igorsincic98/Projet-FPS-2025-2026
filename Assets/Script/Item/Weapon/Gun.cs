@@ -34,7 +34,6 @@ public class Gun : MonoBehaviour
                 if (CurrentCooldown <= 0f)
                 {
                     OnGunShoot?.Invoke();
-                    Debug.Log("Fire");
                     CurrentCooldown = FireCooldown;
                 }
             }

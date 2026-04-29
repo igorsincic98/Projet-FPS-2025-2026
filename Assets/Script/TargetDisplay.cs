@@ -21,6 +21,7 @@ public class TargetDisplay : MonoBehaviour
 
     public void UpdateTargetDisplay()
     {
+        _remainingTarget = GameObject.Find("RetractableWall").transform.childCount - 3;
         _objectiveText.text = ("X " + _remainingTarget);
     }
 }
