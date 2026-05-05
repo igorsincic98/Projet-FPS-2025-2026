@@ -14,10 +14,15 @@ public class PlayerMotor : MonoBehaviour
     public float jumpHeight = 3f;
 
     public float sprintSpeed = 2f;
+    private Vector3 _velocity;
+
+    private Rigidbody _rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        _rb = GetComponent<Rigidbody>();
+        _velocity = _rb.linearVelocity;
     }
 
     // Update is called once per frame
@@ -28,7 +33,11 @@ public class PlayerMotor : MonoBehaviour
         {
             speed = 5f * sprintSpeed;
         }
-        else speed = 5f;
+
+        /*if (_velocity.magnitude <= 0f)
+        {
+            speed = 5f;
+        }*/
             
     }
 
