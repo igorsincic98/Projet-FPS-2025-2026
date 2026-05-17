@@ -19,6 +19,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private GameObject inventory;
     
     [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] private bool _cursorLocked;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +31,7 @@ public class InputManager : MonoBehaviour
         look = GetComponent<PlayerLook>();
         onFoot.Jump.performed += ctx => motor.Jump(); 
         Cursor.lockState = CursorLockMode.Locked;
+        _cursorLocked = true;
 
     }
 
@@ -57,7 +59,23 @@ public class InputManager : MonoBehaviour
     {
         bool currentInventoryState = inventory.activeSelf;
         inventory.SetActive(!currentInventoryState);
-        Cursor.lockState = CursorLockMode.None;
+    }
+    public void CursorLockSwitch()
+    {
+        if (_cursorLocked)
+        {
+        Cursor.lockState = CursorLockMode.None; 
+        Debug.Log("Cursor unlocked");
+        _cursorLocked = false;
+        return;
+        }
+
+        if (_cursorLocked = false)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Debug.Log("Cursor locked");
+            return;
+        }
     }
 
 }

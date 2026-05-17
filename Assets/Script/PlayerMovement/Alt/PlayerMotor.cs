@@ -29,10 +29,12 @@ public class PlayerMotor : MonoBehaviour
     void Update()
     {
         isGrounded = controller.isGrounded;
+        /*
         if (Input.GetButton("Sprint") && isGrounded)
         {
             speed = 5f * sprintSpeed;
         }
+        */
 
         /*if (_velocity.magnitude <= 0f)
         {
